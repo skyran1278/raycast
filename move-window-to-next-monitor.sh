@@ -23,7 +23,7 @@ if [[ $isFullScreen == "true" ]]; then
 fi
 
 # Run the "Next Display" command
-osascript -e 'tell application "System Events" to keystroke "j" using {option down}' \
+osascript -e 'tell application "System Events" to keystroke "x" using {option down}' \
           -e 'delay 0.5' \
           -e 'tell application "System Events" to keystroke "f" using {option down}' \
           -e 'delay 1'
@@ -31,7 +31,7 @@ osascript -e 'tell application "System Events" to keystroke "j" using {option do
 # because built-in display is not considered as a display, we need to run the "Next Display" command again
 isFullScreen=$(osascript -e 'tell application "System Events" to get value of attribute "AXFullScreen" of window 1 of (first process whose frontmost is true)')
 if [[ $isFullScreen == "false" ]]; then
-  osascript -e 'tell application "System Events" to keystroke "j" using {option down}' \
+  osascript -e 'tell application "System Events" to keystroke "x" using {option down}' \
             -e 'delay 0.5' \
             -e 'tell application "System Events" to keystroke "f" using {option down}' \
             -e 'delay 1' \

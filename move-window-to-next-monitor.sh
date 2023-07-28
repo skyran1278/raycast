@@ -29,11 +29,12 @@ osascript -e 'tell application "System Events" to keystroke "x" using {option do
           -e 'delay 1'
 
 # because built-in display is not considered as a display, we need to run the "Next Display" command again
-isFullScreen=$(osascript -e 'tell application "System Events" to get value of attribute "AXFullScreen" of window 1 of (first process whose frontmost is true)')
-if [[ $isFullScreen == "false" ]]; then
-  osascript -e 'tell application "System Events" to keystroke "x" using {option down}' \
-            -e 'delay 0.5' \
-            -e 'tell application "System Events" to keystroke "f" using {option down}' \
-            -e 'delay 1' \
-            -e 'tell application "System Events" to keystroke return using {option down}'
-fi
+# frontmostApp=$(osascript -e 'tell application "System Events" to get the name of (first process whose frontmost is true)')
+# isFullScreen=$(osascript -e "tell application \"System Events\" to tell process \"$frontmostApp\" to get value of attribute \"AXFullScreen\" of window 1")
+# if [[ $isFullScreen == "false" ]]; then
+#   osascript -e 'tell application "System Events" to keystroke "x" using {option down}' \
+#             -e 'delay 0.5' \
+#             -e 'tell application "System Events" to keystroke "f" using {option down}' \
+#             -e 'delay 1' \
+#             -e 'tell application "System Events" to keystroke return using {option down}'
+# fi
